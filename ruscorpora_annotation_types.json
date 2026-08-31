@@ -1,0 +1,2214 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "ruscorpora_annotation_inventory",
+  "title_ru": "Виды разметки Национального корпуса русского языка",
+  "language": "ru",
+  "generated_at": "2026-08-02",
+  "encoding": "UTF-8",
+  "source": {
+    "main_url": "https://ruscorpora.ru/page/annotation",
+    "main_page_updated": "2026-03-02",
+    "accessed_at": "2026-08-02",
+    "publisher": "Национальный корпус русского языка",
+    "scope_note": "Файл нормализует сведения со страницы «Виды разметки» и связанных официальных страниц НКРЯ. Эллиптическая разметка перечислена на главной странице, но отсутствует в нумерованном меню; для ее описания использована официальная страница Синтаксического корпуса."
+  },
+  "annotation_types": [
+    {
+      "id": "morphological",
+      "position": 1,
+      "official_navigation_number": 1,
+      "name_ru": "Морфологическая разметка",
+      "name_en": "Morphological annotation",
+      "level": [
+        "token",
+        "lexeme"
+      ],
+      "source_url": "https://ruscorpora.ru/page/instruction-morph/",
+      "source_updated": "2025-09-30",
+      "description_ru": "Лемма, часть речи, классифицирующие и словоизменительные признаки словоформы, а также признаки нестандартности записи.",
+      "search_fields": [
+        "Лемма",
+        "Грамматические признаки",
+        "Дополнительные признаки"
+      ],
+      "standard": "Основной морфологический стандарт НКРЯ",
+      "inventory": {
+        "parts_of_speech": [
+          {
+            "tag": "S",
+            "label_ru": "существительное"
+          },
+          {
+            "tag": "A",
+            "label_ru": "прилагательное"
+          },
+          {
+            "tag": "NUM",
+            "label_ru": "числительное"
+          },
+          {
+            "tag": "ANUM",
+            "label_ru": "числительное-прилагательное"
+          },
+          {
+            "tag": "V",
+            "label_ru": "глагол"
+          },
+          {
+            "tag": "ADV",
+            "label_ru": "наречие"
+          },
+          {
+            "tag": "PRAEDIC",
+            "label_ru": "предикатив"
+          },
+          {
+            "tag": "PARENTH",
+            "label_ru": "вводное слово"
+          },
+          {
+            "tag": "SPRO",
+            "label_ru": "местоимение-существительное"
+          },
+          {
+            "tag": "APRO",
+            "label_ru": "местоимение-прилагательное"
+          },
+          {
+            "tag": "ADVPRO",
+            "label_ru": "местоименное наречие"
+          },
+          {
+            "tag": "PRAEDICPRO",
+            "label_ru": "местоимение-предикатив"
+          },
+          {
+            "tag": "PR",
+            "label_ru": "предлог"
+          },
+          {
+            "tag": "CONJ",
+            "label_ru": "союз"
+          },
+          {
+            "tag": "PART",
+            "label_ru": "частица"
+          },
+          {
+            "tag": "INTJ",
+            "label_ru": "междометие"
+          },
+          {
+            "tag": "INIT",
+            "label_ru": "инициал"
+          },
+          {
+            "tag": "NONLEX",
+            "label_ru": "неразбираемая последовательность символов"
+          }
+        ],
+        "grammatical_categories": [
+          {
+            "id": "gender",
+            "name_ru": "Род",
+            "values": [
+              {
+                "tag": "m",
+                "label_ru": "мужской"
+              },
+              {
+                "tag": "f",
+                "label_ru": "женский"
+              },
+              {
+                "tag": "m-f",
+                "label_ru": "общий"
+              },
+              {
+                "tag": "n",
+                "label_ru": "средний"
+              }
+            ]
+          },
+          {
+            "id": "animacy",
+            "name_ru": "Одушевленность",
+            "values": [
+              {
+                "tag": "anim",
+                "label_ru": "одушевленное"
+              },
+              {
+                "tag": "inan",
+                "label_ru": "неодушевленное"
+              }
+            ]
+          },
+          {
+            "id": "number",
+            "name_ru": "Число",
+            "values": [
+              {
+                "tag": "sg",
+                "label_ru": "единственное"
+              },
+              {
+                "tag": "pl",
+                "label_ru": "множественное"
+              }
+            ]
+          },
+          {
+            "id": "case",
+            "name_ru": "Падеж",
+            "values": [
+              {
+                "tag": "nom",
+                "label_ru": "именительный"
+              },
+              {
+                "tag": "gen",
+                "label_ru": "родительный"
+              },
+              {
+                "tag": "dat",
+                "label_ru": "дательный"
+              },
+              {
+                "tag": "acc",
+                "label_ru": "винительный"
+              },
+              {
+                "tag": "ins",
+                "label_ru": "творительный"
+              },
+              {
+                "tag": "loc",
+                "label_ru": "предложный"
+              },
+              {
+                "tag": "gen2",
+                "label_ru": "второй родительный"
+              },
+              {
+                "tag": "acc2",
+                "label_ru": "второй винительный"
+              },
+              {
+                "tag": "loc2",
+                "label_ru": "второй предложный"
+              },
+              {
+                "tag": "voc",
+                "label_ru": "звательная форма"
+              },
+              {
+                "tag": "adnum",
+                "label_ru": "счетная форма"
+              }
+            ]
+          },
+          {
+            "id": "short_full",
+            "name_ru": "Краткая/полная форма",
+            "values": [
+              {
+                "tag": "brev",
+                "label_ru": "краткая"
+              },
+              {
+                "tag": "plen",
+                "label_ru": "полная"
+              }
+            ]
+          },
+          {
+            "id": "degree",
+            "name_ru": "Степень сравнения",
+            "values": [
+              {
+                "tag": "comp",
+                "label_ru": "сравнительная"
+              },
+              {
+                "tag": "comp2",
+                "label_ru": "форма по- + сравнительная степень"
+              },
+              {
+                "tag": "supr",
+                "label_ru": "превосходная"
+              }
+            ]
+          },
+          {
+            "id": "aspect",
+            "name_ru": "Вид",
+            "values": [
+              {
+                "tag": "pf",
+                "label_ru": "совершенный"
+              },
+              {
+                "tag": "ipf",
+                "label_ru": "несовершенный"
+              }
+            ]
+          },
+          {
+            "id": "transitivity",
+            "name_ru": "Переходность",
+            "values": [
+              {
+                "tag": "intr",
+                "label_ru": "непереходный"
+              },
+              {
+                "tag": "tran",
+                "label_ru": "переходный"
+              }
+            ]
+          },
+          {
+            "id": "voice",
+            "name_ru": "Залог",
+            "values": [
+              {
+                "tag": "act",
+                "label_ru": "действительный"
+              },
+              {
+                "tag": "pass",
+                "label_ru": "страдательный"
+              },
+              {
+                "tag": "med",
+                "label_ru": "медиальный/средний"
+              }
+            ]
+          },
+          {
+            "id": "verb_representation",
+            "name_ru": "Форма глагола",
+            "values": [
+              {
+                "tag": "inf",
+                "label_ru": "инфинитив"
+              },
+              {
+                "tag": "partcp",
+                "label_ru": "причастие"
+              },
+              {
+                "tag": "ger",
+                "label_ru": "деепричастие"
+              }
+            ]
+          },
+          {
+            "id": "mood",
+            "name_ru": "Наклонение",
+            "values": [
+              {
+                "tag": "indic",
+                "label_ru": "изъявительное"
+              },
+              {
+                "tag": "imper",
+                "label_ru": "повелительное"
+              },
+              {
+                "tag": "imper2",
+                "label_ru": "повелительное 1-го лица множественного числа на -те"
+              }
+            ]
+          },
+          {
+            "id": "tense",
+            "name_ru": "Время",
+            "values": [
+              {
+                "tag": "praet",
+                "label_ru": "прошедшее"
+              },
+              {
+                "tag": "praes",
+                "label_ru": "настоящее"
+              },
+              {
+                "tag": "fut",
+                "label_ru": "будущее"
+              }
+            ]
+          },
+          {
+            "id": "person",
+            "name_ru": "Лицо",
+            "values": [
+              {
+                "tag": "1p",
+                "label_ru": "первое"
+              },
+              {
+                "tag": "2p",
+                "label_ru": "второе"
+              },
+              {
+                "tag": "3p",
+                "label_ru": "третье"
+              }
+            ]
+          }
+        ],
+        "other_lexical_features": [
+          {
+            "tag": "persn",
+            "label_ru": "личное имя"
+          },
+          {
+            "tag": "patrn",
+            "label_ru": "отчество"
+          },
+          {
+            "tag": "famn",
+            "label_ru": "фамилия"
+          },
+          {
+            "tag": "zoon",
+            "label_ru": "кличка животного"
+          },
+          {
+            "tag": "0",
+            "label_ru": "несклоняемое"
+          }
+        ],
+        "nonstandard_or_recording_features": [
+          {
+            "tag": "anom",
+            "label_ru": "аномальная форма"
+          },
+          {
+            "tag": "distort",
+            "label_ru": "искаженная форма"
+          },
+          {
+            "tag": "ciph",
+            "label_ru": "цифровая запись"
+          },
+          {
+            "tag": "abbr",
+            "label_ru": "сокращение"
+          },
+          {
+            "tag": "bastard",
+            "label_ru": "несловарная форма"
+          },
+          {
+            "tag": "norm",
+            "label_ru": "словарная форма"
+          }
+        ]
+      },
+      "syntagrus_variant": {
+        "description_ru": "Отдельный кириллический набор морфологических характеристик СинТагРус.",
+        "parts_of_speech": [
+          {
+            "tag": "V",
+            "label_ru": "глагол"
+          },
+          {
+            "tag": "S",
+            "label_ru": "существительное"
+          },
+          {
+            "tag": "A",
+            "label_ru": "прилагательное"
+          },
+          {
+            "tag": "ADV",
+            "label_ru": "наречие"
+          },
+          {
+            "tag": "NUM",
+            "label_ru": "числительное"
+          },
+          {
+            "tag": "PR",
+            "label_ru": "предлог"
+          },
+          {
+            "tag": "CONJ",
+            "label_ru": "союз"
+          },
+          {
+            "tag": "PART",
+            "label_ru": "частица"
+          },
+          {
+            "tag": "INTJ",
+            "label_ru": "междометие"
+          },
+          {
+            "tag": "COM",
+            "label_ru": "композит"
+          },
+          {
+            "tag": "NID",
+            "label_ru": "иноязычное вкрапление или несловесная формула"
+          }
+        ],
+        "grammemes": [
+          {
+            "tag": "од",
+            "label_ru": "одушевленное"
+          },
+          {
+            "tag": "неод",
+            "label_ru": "неодушевленное"
+          },
+          {
+            "tag": "муж",
+            "label_ru": "мужской род"
+          },
+          {
+            "tag": "жен",
+            "label_ru": "женский род"
+          },
+          {
+            "tag": "сред",
+            "label_ru": "средний род"
+          },
+          {
+            "tag": "ед",
+            "label_ru": "единственное число"
+          },
+          {
+            "tag": "мн",
+            "label_ru": "множественное число"
+          },
+          {
+            "tag": "им",
+            "label_ru": "именительный падеж"
+          },
+          {
+            "tag": "род",
+            "label_ru": "родительный падеж"
+          },
+          {
+            "tag": "парт",
+            "label_ru": "партитивный падеж"
+          },
+          {
+            "tag": "дат",
+            "label_ru": "дательный падеж"
+          },
+          {
+            "tag": "вин",
+            "label_ru": "винительный падеж"
+          },
+          {
+            "tag": "твор",
+            "label_ru": "творительный падеж"
+          },
+          {
+            "tag": "пр",
+            "label_ru": "предложный падеж"
+          },
+          {
+            "tag": "местн",
+            "label_ru": "местный падеж"
+          },
+          {
+            "tag": "зв",
+            "label_ru": "звательный падеж"
+          },
+          {
+            "tag": "срав",
+            "label_ru": "сравнительная степень"
+          },
+          {
+            "tag": "прев",
+            "label_ru": "превосходная степень"
+          },
+          {
+            "tag": "кр",
+            "label_ru": "краткая форма"
+          },
+          {
+            "tag": "инф",
+            "label_ru": "инфинитив"
+          },
+          {
+            "tag": "прич",
+            "label_ru": "причастие"
+          },
+          {
+            "tag": "деепр",
+            "label_ru": "деепричастие"
+          },
+          {
+            "tag": "изъяв",
+            "label_ru": "изъявительное наклонение"
+          },
+          {
+            "tag": "пов",
+            "label_ru": "повелительное наклонение"
+          },
+          {
+            "tag": "несов",
+            "label_ru": "несовершенный вид"
+          },
+          {
+            "tag": "сов",
+            "label_ru": "совершенный вид"
+          },
+          {
+            "tag": "непрош",
+            "label_ru": "непрошедшее время"
+          },
+          {
+            "tag": "прош",
+            "label_ru": "прошедшее время"
+          },
+          {
+            "tag": "наст",
+            "label_ru": "настоящее время"
+          },
+          {
+            "tag": "1-л",
+            "label_ru": "первое лицо"
+          },
+          {
+            "tag": "2-л",
+            "label_ru": "второе лицо"
+          },
+          {
+            "tag": "3-л",
+            "label_ru": "третье лицо"
+          },
+          {
+            "tag": "страд",
+            "label_ru": "страдательный залог"
+          },
+          {
+            "tag": "сл",
+            "label_ru": "форма для словосложения"
+          },
+          {
+            "tag": "смяг",
+            "label_ru": "смягченная сравнительная степень"
+          }
+        ]
+      }
+    },
+    {
+      "id": "derivational_morphemic",
+      "position": 2,
+      "official_navigation_number": 2,
+      "name_ru": "Словообразовательная разметка",
+      "name_en": "Derivational and morphemic annotation",
+      "level": [
+        "lexeme",
+        "morpheme"
+      ],
+      "source_url": "https://ruscorpora.ru/page/instruction-derivation/",
+      "description_ru": "Морфемный состав леммы: последовательность морфем, тип каждой морфемы и ее линейная позиция.",
+      "available_in": [
+        "Основной корпус",
+        "Обучающий корпус",
+        "Портрет слова"
+      ],
+      "morpheme_types": [
+        "приставка",
+        "корень",
+        "интерфикс",
+        "суффикс",
+        "окончание",
+        "постфикс"
+      ],
+      "search_parameters": [
+        "буквенный состав морфемы",
+        "тип морфемы",
+        "линейная позиция",
+        "учет чередования/алломорфов"
+      ],
+      "analysis_sources": [
+        {
+          "corpus": "Основной корпус",
+          "method": "словарная и автоматическая нейросетевая разметка",
+          "dictionary_coverage_note": "около 75 тысяч лексем по состоянию на май 2023 года",
+          "automatic_model": "RuRoBERTa-large, дообученная для морфемной сегментации",
+          "automatic_marker": "сгенерировано НейроКРЯ",
+          "reported_exact_parse_accuracy": ">93.5%"
+        },
+        {
+          "corpus": "Обучающий корпус",
+          "method": "словарная разметка",
+          "dictionary": "Морфемно-орфографический словарь А. Н. Тихонова (2002)",
+          "dictionary_coverage_note": "около 100 тысяч лексем"
+        }
+      ]
+    },
+    {
+      "id": "syntactic",
+      "position": 3,
+      "official_navigation_number": 3,
+      "name_ru": "Синтаксическая разметка",
+      "name_en": "Syntactic annotation",
+      "level": [
+        "sentence",
+        "token",
+        "dependency_relation"
+      ],
+      "source_url": "https://ruscorpora.ru/page/instruction-syntax/",
+      "source_updated": "2025-09-30",
+      "description_ru": "Деревья зависимостей с отношениями между главным и зависимым словом.",
+      "formats": [
+        {
+          "id": "syntagrus",
+          "name": "СинТагРус",
+          "used_in": [
+            "Синтаксический корпус"
+          ],
+          "theoretical_basis": "модель «Смысл ⇔ Текст»",
+          "relation_count": 68,
+          "relation_groups": [
+            "актантные",
+            "атрибутивные",
+            "сочинительные",
+            "служебные"
+          ],
+          "relation_document_url": "https://ruscorpora.ru/media/1/b/15b2241d-170a-4bbc-b96e-7bfa149c3e61.pdf"
+        },
+        {
+          "id": "universal_dependencies",
+          "name": "Universal Dependencies (UD)",
+          "used_in": [
+            "Основной корпус",
+            "Газетный корпус",
+            "другие корпуса НКРЯ"
+          ],
+          "base_relation_count": 36,
+          "subtype_count": 16,
+          "excluded_universal_relation": "clf",
+          "role_categories": [
+            "вершина предложения",
+            "аргументы",
+            "квази-аргументы",
+            "модификаторы",
+            "грамматические маркеры структуры",
+            "не-зависимости"
+          ],
+          "base_relations": [
+            "acl",
+            "advcl",
+            "advmod",
+            "amod",
+            "appos",
+            "aux",
+            "case",
+            "cc",
+            "ccomp",
+            "compound",
+            "conj",
+            "cop",
+            "csubj",
+            "dep",
+            "det",
+            "discourse",
+            "dislocated",
+            "expl",
+            "fixed",
+            "flat",
+            "goeswith",
+            "iobj",
+            "list",
+            "mark",
+            "nmod",
+            "nsubj",
+            "nummod",
+            "obj",
+            "obl",
+            "orphan",
+            "parataxis",
+            "punct",
+            "reparandum",
+            "root",
+            "vocative",
+            "xcomp"
+          ],
+          "relation_document_url": "https://ruscorpora.ru/media/uploads/2023/12/29/rajadw.pdf"
+        }
+      ]
+    },
+    {
+      "id": "semantic",
+      "position": 4,
+      "official_navigation_number": 4,
+      "name_ru": "Семантическая разметка",
+      "name_en": "Semantic annotation",
+      "level": [
+        "lexeme",
+        "token"
+      ],
+      "source_url": "https://ruscorpora.ru/page/instruction-semantic/",
+      "source_updated": "2025-09-30",
+      "description_ru": "Автоматическая фасетная лексико-семантическая разметка: разряд, тематический класс, мереология, топология, каузация, оценка и деривационные признаки.",
+      "annotation_method": "автоматическая программа Semmarkup по Семантическому словарю НКРЯ",
+      "ambiguity": "семантическая омонимия не снимается",
+      "facet_types": [
+        "разряд",
+        "таксономия",
+        "мереология",
+        "топология",
+        "каузация",
+        "служебный статус",
+        "оценка",
+        "деривация"
+      ],
+      "inventory_by_part_of_speech": {
+        "nouns": {
+          "classes": [
+            {
+              "tag": "r:concr",
+              "label_ru": "предметные имена"
+            },
+            {
+              "tag": "r:abstr",
+              "label_ru": "непредметные имена"
+            },
+            {
+              "tag": "r:propn",
+              "label_ru": "имена собственные"
+            }
+          ],
+          "concrete_taxonomy": [
+            {
+              "tag": "t:hum",
+              "label_ru": "лица"
+            },
+            {
+              "tag": "t:hum:etn",
+              "label_ru": "этнонимы"
+            },
+            {
+              "tag": "t:hum:kin",
+              "label_ru": "имена родства"
+            },
+            {
+              "tag": "t:hum:supernat",
+              "label_ru": "сверхъестественные существа"
+            },
+            {
+              "tag": "t:animal",
+              "label_ru": "животные"
+            },
+            {
+              "tag": "t:plant",
+              "label_ru": "растения"
+            },
+            {
+              "tag": "t:stuff",
+              "label_ru": "вещества и материалы"
+            },
+            {
+              "tag": "t:space",
+              "label_ru": "пространство и место"
+            },
+            {
+              "tag": "t:constr",
+              "label_ru": "здания и сооружения"
+            },
+            {
+              "tag": "t:tool",
+              "label_ru": "инструменты и приспособления"
+            },
+            {
+              "tag": "t:tool:instr",
+              "label_ru": "инструменты"
+            },
+            {
+              "tag": "t:tool:device",
+              "label_ru": "механизмы и приборы"
+            },
+            {
+              "tag": "t:tool:transp",
+              "label_ru": "транспортные средства"
+            },
+            {
+              "tag": "t:tool:weapon",
+              "label_ru": "оружие"
+            },
+            {
+              "tag": "t:tool:mus",
+              "label_ru": "музыкальные инструменты"
+            },
+            {
+              "tag": "t:tool:furn",
+              "label_ru": "мебель"
+            },
+            {
+              "tag": "t:tool:dish",
+              "label_ru": "посуда"
+            },
+            {
+              "tag": "t:tool:cloth",
+              "label_ru": "одежда и обувь"
+            },
+            {
+              "tag": "t:food",
+              "label_ru": "еда и напитки"
+            },
+            {
+              "tag": "t:text",
+              "label_ru": "тексты"
+            }
+          ],
+          "concrete_mereology": [
+            {
+              "tag": "pt:part",
+              "label_ru": "часть"
+            },
+            {
+              "tag": "pt:partb & pc:hum",
+              "label_ru": "часть тела человека"
+            },
+            {
+              "tag": "pt:partb & pc:animal",
+              "label_ru": "часть тела животного"
+            },
+            {
+              "tag": "pt:part & pc:plant",
+              "label_ru": "часть растения"
+            },
+            {
+              "tag": "pt:part & pc:constr",
+              "label_ru": "часть здания или сооружения"
+            },
+            {
+              "tag": "pt:part & pc:tool",
+              "label_ru": "часть приспособления"
+            },
+            {
+              "tag": "pt:part & pc:tool:instr",
+              "label_ru": "часть инструмента"
+            },
+            {
+              "tag": "pt:part & pc:tool:device",
+              "label_ru": "часть механизма или прибора"
+            },
+            {
+              "tag": "pt:part & pc:tool:transp",
+              "label_ru": "часть транспортного средства"
+            },
+            {
+              "tag": "pt:part & pc:tool:weapon",
+              "label_ru": "часть оружия"
+            },
+            {
+              "tag": "pt:part & pc:tool:mus",
+              "label_ru": "часть музыкального инструмента"
+            },
+            {
+              "tag": "pt:part & pc:tool:furn",
+              "label_ru": "часть мебели"
+            },
+            {
+              "tag": "pt:part & pc:tool:dish",
+              "label_ru": "часть посуды"
+            },
+            {
+              "tag": "pt:part & pc:tool:cloth",
+              "label_ru": "часть одежды или обуви"
+            }
+          ],
+          "topology": [
+            {
+              "tag": "top:contain",
+              "label_ru": "вместилище"
+            },
+            {
+              "tag": "top:horiz",
+              "label_ru": "горизонтальная поверхность"
+            }
+          ],
+          "evaluation": [
+            {
+              "tag": "ev",
+              "label_ru": "оценка без полярности"
+            },
+            {
+              "tag": "ev:posit",
+              "label_ru": "положительная оценка"
+            },
+            {
+              "tag": "ev:neg",
+              "label_ru": "отрицательная оценка"
+            }
+          ],
+          "concrete_derivation": [
+            {
+              "tag": "d:dim",
+              "label_ru": "диминутив"
+            },
+            {
+              "tag": "d:aug",
+              "label_ru": "аугментатив"
+            },
+            {
+              "tag": "d:sing",
+              "label_ru": "сингулятив"
+            },
+            {
+              "tag": "d:nag",
+              "label_ru": "nomina agentis"
+            },
+            {
+              "tag": "d:fem",
+              "label_ru": "nomina feminina"
+            }
+          ],
+          "abstract_taxonomy": [
+            {
+              "tag": "t:move",
+              "label_ru": "движение"
+            },
+            {
+              "tag": "t:move:body",
+              "label_ru": "изменение положения тела или части тела"
+            },
+            {
+              "tag": "t:put",
+              "label_ru": "помещение объекта"
+            },
+            {
+              "tag": "t:impact",
+              "label_ru": "физическое воздействие"
+            },
+            {
+              "tag": "t:impact:creat",
+              "label_ru": "создание физического объекта"
+            },
+            {
+              "tag": "t:impact:destr",
+              "label_ru": "уничтожение"
+            },
+            {
+              "tag": "t:changest",
+              "label_ru": "изменение состояния или признака"
+            },
+            {
+              "tag": "t:be",
+              "label_ru": "бытийная сфера"
+            },
+            {
+              "tag": "t:be:exist",
+              "label_ru": "существование"
+            },
+            {
+              "tag": "t:be:appear",
+              "label_ru": "начало существования"
+            },
+            {
+              "tag": "t:be:disapp",
+              "label_ru": "прекращение существования"
+            },
+            {
+              "tag": "t:loc",
+              "label_ru": "местонахождение"
+            },
+            {
+              "tag": "t:loc:body",
+              "label_ru": "положение тела в пространстве"
+            },
+            {
+              "tag": "t:contact",
+              "label_ru": "контакт и опора"
+            },
+            {
+              "tag": "t:poss",
+              "label_ru": "посессивная сфера"
+            },
+            {
+              "tag": "t:ment",
+              "label_ru": "ментальная сфера"
+            },
+            {
+              "tag": "t:perc",
+              "label_ru": "восприятие"
+            },
+            {
+              "tag": "t:psych",
+              "label_ru": "психическая сфера"
+            },
+            {
+              "tag": "t:psych:emot",
+              "label_ru": "эмоция"
+            },
+            {
+              "tag": "t:psych:volit",
+              "label_ru": "воля"
+            },
+            {
+              "tag": "t:speech",
+              "label_ru": "речь"
+            },
+            {
+              "tag": "t:physiol",
+              "label_ru": "физиологическая сфера"
+            },
+            {
+              "tag": "t:weather",
+              "label_ru": "природное явление"
+            },
+            {
+              "tag": "t:sound",
+              "label_ru": "звук"
+            },
+            {
+              "tag": "t:color",
+              "label_ru": "цвет"
+            },
+            {
+              "tag": "t:light",
+              "label_ru": "свет"
+            },
+            {
+              "tag": "t:taste",
+              "label_ru": "вкус"
+            },
+            {
+              "tag": "t:smell",
+              "label_ru": "запах"
+            },
+            {
+              "tag": "t:temper",
+              "label_ru": "температура"
+            },
+            {
+              "tag": "t:time",
+              "label_ru": "время"
+            },
+            {
+              "tag": "t:time:period",
+              "label_ru": "период"
+            },
+            {
+              "tag": "t:time:moment",
+              "label_ru": "момент"
+            },
+            {
+              "tag": "t:time:week",
+              "label_ru": "день недели"
+            },
+            {
+              "tag": "t:time:month",
+              "label_ru": "месяц"
+            },
+            {
+              "tag": "t:time:age",
+              "label_ru": "возраст"
+            },
+            {
+              "tag": "t:humq",
+              "label_ru": "свойство человека"
+            },
+            {
+              "tag": "t:behav",
+              "label_ru": "поведение и поступки человека"
+            },
+            {
+              "tag": "t:inter",
+              "label_ru": "взаимодействие и взаимоотношение"
+            },
+            {
+              "tag": "t:action",
+              "label_ru": "мероприятие"
+            },
+            {
+              "tag": "t:disease",
+              "label_ru": "болезнь"
+            },
+            {
+              "tag": "t:game",
+              "label_ru": "игра"
+            },
+            {
+              "tag": "t:sport",
+              "label_ru": "спорт"
+            },
+            {
+              "tag": "t:param",
+              "label_ru": "параметр"
+            },
+            {
+              "tag": "t:unit",
+              "label_ru": "единица измерения"
+            }
+          ],
+          "abstract_mereology": [
+            {
+              "tag": "pt:part",
+              "label_ru": "часть"
+            },
+            {
+              "tag": "pt:qtm",
+              "label_ru": "квант"
+            },
+            {
+              "tag": "pt:set",
+              "label_ru": "множество"
+            }
+          ],
+          "abstract_derivation": [
+            {
+              "tag": "der:v",
+              "label_ru": "отглагольное имя"
+            },
+            {
+              "tag": "der:a",
+              "label_ru": "отадъективное имя"
+            }
+          ],
+          "proper_names": [
+            {
+              "tag": "t:hum | t:hum:supernat",
+              "label_ru": "лица"
+            },
+            {
+              "tag": "t:persn",
+              "label_ru": "личные имена"
+            },
+            {
+              "tag": "t:patrn",
+              "label_ru": "отчества"
+            },
+            {
+              "tag": "t:famn",
+              "label_ru": "фамилии"
+            },
+            {
+              "tag": "t:topon",
+              "label_ru": "топонимы"
+            },
+            {
+              "tag": "d:dim",
+              "label_ru": "диминутивные собственные имена"
+            }
+          ]
+        },
+        "adjectives": {
+          "classes": [
+            {
+              "tag": "r:qual",
+              "label_ru": "качественные"
+            },
+            {
+              "tag": "r:rel",
+              "label_ru": "относительные"
+            },
+            {
+              "tag": "r:poss",
+              "label_ru": "притяжательные"
+            },
+            {
+              "tag": "r:invar",
+              "label_ru": "неизменяемые"
+            }
+          ],
+          "taxonomy": [
+            {
+              "tag": "t:size",
+              "label_ru": "размер"
+            },
+            {
+              "tag": "t:size:max",
+              "label_ru": "большой размер"
+            },
+            {
+              "tag": "t:size:min",
+              "label_ru": "малый размер"
+            },
+            {
+              "tag": "t:size:abs",
+              "label_ru": "абсолютный размер"
+            },
+            {
+              "tag": "t:dist",
+              "label_ru": "расстояние"
+            },
+            {
+              "tag": "t:dist:max",
+              "label_ru": "большое расстояние"
+            },
+            {
+              "tag": "t:dist:min",
+              "label_ru": "малое расстояние"
+            },
+            {
+              "tag": "t:quant",
+              "label_ru": "количество"
+            },
+            {
+              "tag": "t:quant:max",
+              "label_ru": "большое количество"
+            },
+            {
+              "tag": "t:quant:min",
+              "label_ru": "малое количество"
+            },
+            {
+              "tag": "t:quant:abs",
+              "label_ru": "абсолютное количество"
+            },
+            {
+              "tag": "t:place",
+              "label_ru": "место"
+            },
+            {
+              "tag": "t:dir",
+              "label_ru": "направление"
+            },
+            {
+              "tag": "t:time",
+              "label_ru": "время"
+            },
+            {
+              "tag": "t:time:dur",
+              "label_ru": "длительность"
+            },
+            {
+              "tag": "t:time:dur:max",
+              "label_ru": "большая длительность"
+            },
+            {
+              "tag": "t:time:dur:min",
+              "label_ru": "малая длительность"
+            },
+            {
+              "tag": "t:time:dur:abs",
+              "label_ru": "абсолютная длительность"
+            },
+            {
+              "tag": "t:time:age",
+              "label_ru": "возраст"
+            },
+            {
+              "tag": "t:time:age:max",
+              "label_ru": "большой возраст"
+            },
+            {
+              "tag": "t:time:age:min",
+              "label_ru": "малый возраст"
+            },
+            {
+              "tag": "t:time:age:abs",
+              "label_ru": "абсолютный возраст"
+            },
+            {
+              "tag": "t:speed",
+              "label_ru": "скорость"
+            },
+            {
+              "tag": "t:speed:max",
+              "label_ru": "большая скорость"
+            },
+            {
+              "tag": "t:speed:min",
+              "label_ru": "малая скорость"
+            },
+            {
+              "tag": "t:physq",
+              "label_ru": "физические свойства"
+            },
+            {
+              "tag": "t:physq:form",
+              "label_ru": "форма"
+            },
+            {
+              "tag": "t:physq:color",
+              "label_ru": "цвет"
+            },
+            {
+              "tag": "t:physq:taste",
+              "label_ru": "вкус"
+            },
+            {
+              "tag": "t:physq:smell",
+              "label_ru": "запах"
+            },
+            {
+              "tag": "t:physq:temper",
+              "label_ru": "температура"
+            },
+            {
+              "tag": "t:physq:weight",
+              "label_ru": "вес"
+            },
+            {
+              "tag": "t:humq",
+              "label_ru": "качества человека"
+            }
+          ],
+          "evaluation": [
+            {
+              "tag": "ev",
+              "label_ru": "оценка без полярности"
+            },
+            {
+              "tag": "ev:posit",
+              "label_ru": "положительная оценка"
+            },
+            {
+              "tag": "ev:neg",
+              "label_ru": "отрицательная оценка"
+            }
+          ],
+          "derivation": [
+            {
+              "tag": "d:dim",
+              "label_ru": "диминутив"
+            },
+            {
+              "tag": "d:aug",
+              "label_ru": "аугментатив"
+            },
+            {
+              "tag": "d:atten",
+              "label_ru": "аттенуатив"
+            },
+            {
+              "tag": "d:habit",
+              "label_ru": "хабитив"
+            },
+            {
+              "tag": "d:carit",
+              "label_ru": "каритив"
+            },
+            {
+              "tag": "d:potent",
+              "label_ru": "поссибилитив"
+            },
+            {
+              "tag": "d:impot",
+              "label_ru": "импоссибилитив"
+            },
+            {
+              "tag": "der:s",
+              "label_ru": "отыменное прилагательное"
+            },
+            {
+              "tag": "der:v",
+              "label_ru": "отглагольное прилагательное"
+            },
+            {
+              "tag": "der:adv",
+              "label_ru": "отадвербиальное прилагательное"
+            }
+          ]
+        },
+        "numerals": {
+          "classes": [
+            {
+              "tag": "r:card",
+              "label_ru": "количественные"
+            },
+            {
+              "tag": "r:card:pauc",
+              "label_ru": "числительные малого количества"
+            },
+            {
+              "tag": "r:ord",
+              "label_ru": "порядковые"
+            }
+          ]
+        },
+        "pronouns": {
+          "morphological_subclasses": [
+            "S-PRO",
+            "A-PRO",
+            "ADV-PRO"
+          ],
+          "classes": [
+            {
+              "tag": "r:pers",
+              "label_ru": "личные"
+            },
+            {
+              "tag": "r:ref",
+              "label_ru": "возвратные"
+            },
+            {
+              "tag": "r:poss",
+              "label_ru": "притяжательные"
+            },
+            {
+              "tag": "r:rel",
+              "label_ru": "вопросительные/относительные"
+            },
+            {
+              "tag": "r:dem",
+              "label_ru": "указательные"
+            },
+            {
+              "tag": "r:indet",
+              "label_ru": "неопределенные"
+            },
+            {
+              "tag": "r:neg",
+              "label_ru": "отрицательные"
+            },
+            {
+              "tag": "r:spec",
+              "label_ru": "кванторные/определительные"
+            }
+          ]
+        },
+        "verbs": {
+          "taxonomy": [
+            {
+              "tag": "t:move",
+              "label_ru": "движение"
+            },
+            {
+              "tag": "t:move:body",
+              "label_ru": "изменение положения тела или части тела"
+            },
+            {
+              "tag": "t:put",
+              "label_ru": "помещение объекта"
+            },
+            {
+              "tag": "t:impact",
+              "label_ru": "физическое воздействие"
+            },
+            {
+              "tag": "t:impact:creat",
+              "label_ru": "создание физического объекта"
+            },
+            {
+              "tag": "t:impact:destr",
+              "label_ru": "уничтожение"
+            },
+            {
+              "tag": "t:changest",
+              "label_ru": "изменение состояния или признака"
+            },
+            {
+              "tag": "t:be",
+              "label_ru": "бытийная сфера"
+            },
+            {
+              "tag": "t:be:exist",
+              "label_ru": "существование"
+            },
+            {
+              "tag": "t:be:appear",
+              "label_ru": "начало существования"
+            },
+            {
+              "tag": "t:be:disapp",
+              "label_ru": "прекращение существования"
+            },
+            {
+              "tag": "t:loc",
+              "label_ru": "местонахождение"
+            },
+            {
+              "tag": "t:loc:body",
+              "label_ru": "положение тела в пространстве"
+            },
+            {
+              "tag": "t:contact",
+              "label_ru": "контакт и опора"
+            },
+            {
+              "tag": "t:poss",
+              "label_ru": "посессивная сфера"
+            },
+            {
+              "tag": "t:ment",
+              "label_ru": "ментальная сфера"
+            },
+            {
+              "tag": "t:perc",
+              "label_ru": "восприятие"
+            },
+            {
+              "tag": "t:psych",
+              "label_ru": "психическая сфера"
+            },
+            {
+              "tag": "t:psych:emot",
+              "label_ru": "эмоция"
+            },
+            {
+              "tag": "t:psych:volit",
+              "label_ru": "воля"
+            },
+            {
+              "tag": "t:speech",
+              "label_ru": "речь"
+            },
+            {
+              "tag": "t:physiol",
+              "label_ru": "физиологическая сфера"
+            },
+            {
+              "tag": "t:weather",
+              "label_ru": "природное явление"
+            },
+            {
+              "tag": "t:sound",
+              "label_ru": "звук"
+            },
+            {
+              "tag": "t:light",
+              "label_ru": "свет"
+            },
+            {
+              "tag": "t:smell",
+              "label_ru": "запах"
+            },
+            {
+              "tag": "t:humq",
+              "label_ru": "свойство человека"
+            },
+            {
+              "tag": "t:behav",
+              "label_ru": "поведение и поступки человека"
+            }
+          ],
+          "causation": [
+            {
+              "tag": "ca:caus",
+              "label_ru": "каузативный"
+            },
+            {
+              "tag": "ca:noncaus",
+              "label_ru": "некаузативный"
+            }
+          ],
+          "auxiliary_status": [
+            {
+              "tag": "aux:phase",
+              "label_ru": "фазовый"
+            },
+            {
+              "tag": "aux:caus",
+              "label_ru": "служебный каузативный"
+            }
+          ],
+          "derivation": [
+            {
+              "tag": "d:pref",
+              "label_ru": "приставочный глагол"
+            },
+            {
+              "tag": "d:semelf",
+              "label_ru": "семельфактив"
+            },
+            {
+              "tag": "d:impf",
+              "label_ru": "вторичный имперфектив"
+            }
+          ]
+        },
+        "adverbs": {
+          "taxonomy": [
+            {
+              "tag": "t:place",
+              "label_ru": "место"
+            },
+            {
+              "tag": "t:dir",
+              "label_ru": "направление"
+            },
+            {
+              "tag": "t:dist",
+              "label_ru": "расстояние"
+            },
+            {
+              "tag": "t:dist:max",
+              "label_ru": "большое расстояние"
+            },
+            {
+              "tag": "t:dist:min",
+              "label_ru": "малое расстояние"
+            },
+            {
+              "tag": "t:time",
+              "label_ru": "время"
+            },
+            {
+              "tag": "t:time:dur",
+              "label_ru": "длительность"
+            },
+            {
+              "tag": "t:time:dur:max",
+              "label_ru": "большая длительность"
+            },
+            {
+              "tag": "t:time:dur:min",
+              "label_ru": "малая длительность"
+            },
+            {
+              "tag": "t:speed",
+              "label_ru": "скорость"
+            },
+            {
+              "tag": "t:speed:max",
+              "label_ru": "большая скорость"
+            },
+            {
+              "tag": "t:speed:min",
+              "label_ru": "малая скорость"
+            },
+            {
+              "tag": "t:quant",
+              "label_ru": "количество"
+            },
+            {
+              "tag": "t:quant:max",
+              "label_ru": "большое количество"
+            },
+            {
+              "tag": "t:quant:min",
+              "label_ru": "малое количество"
+            }
+          ],
+          "evaluation": [
+            {
+              "tag": "ev",
+              "label_ru": "оценка без полярности"
+            },
+            {
+              "tag": "ev:posit",
+              "label_ru": "положительная оценка"
+            },
+            {
+              "tag": "ev:neg",
+              "label_ru": "отрицательная оценка"
+            }
+          ],
+          "derivation": [
+            {
+              "tag": "d:dim",
+              "label_ru": "диминутив"
+            },
+            {
+              "tag": "d:atten",
+              "label_ru": "аттенуатив"
+            },
+            {
+              "tag": "der:s",
+              "label_ru": "отыменное наречие"
+            },
+            {
+              "tag": "der:v",
+              "label_ru": "отглагольное наречие"
+            },
+            {
+              "tag": "der:a",
+              "label_ru": "отадъективное наречие"
+            }
+          ],
+          "source_adjective_taxonomy_prefix": "dt:"
+        }
+      }
+    },
+    {
+      "id": "lexical_functional",
+      "position": 5,
+      "official_navigation_number": 5,
+      "name_ru": "Лексико-функциональная разметка",
+      "name_en": "Lexical-functional annotation",
+      "level": [
+        "lexeme_pair",
+        "collocation"
+      ],
+      "source_url": "https://ruscorpora.ru/page/instruction-lexical-functional/",
+      "description_ru": "Синтагматические лексические функции модели «Смысл — Текст», описывающие коллокаты и семантические отношения между ключевым словом и его сочетанием.",
+      "available_in": [
+        "Синтаксический корпус (СинТагРус)"
+      ],
+      "search_syntax": {
+        "prefix": "_",
+        "examples": [
+          "_OPER1",
+          "_MAGN"
+        ]
+      },
+      "families": {
+        "OPER_LABOR_FUNC": [
+          "OPER1",
+          "OPER2",
+          "OPER3",
+          "CAUSOPER1",
+          "LIQUOPER1",
+          "LIQUOPER2",
+          "INCEPOPER1",
+          "INCEPOPER2",
+          "FINOPER1",
+          "FINOPER2",
+          "LABOR1-2",
+          "INCEPLABOR1-2",
+          "FINLABOR1-2",
+          "FUNC0",
+          "FUNC1",
+          "FUNC2",
+          "FUNC3",
+          "CAUSFUNC0",
+          "CAUSFUNC1",
+          "CAUSFUNC2",
+          "LIQUFUNC0",
+          "LIQUFUNC1",
+          "LIQUFUNC2",
+          "INCEPFUNC0",
+          "INCEPFUNC1",
+          "FINFUNC0",
+          "FINFUNC1"
+        ],
+        "REAL_LABREAL_FACT": [
+          "REAL1",
+          "REAL2",
+          "CAUSREAL1",
+          "CAUSREAL2",
+          "LIQUREAL1",
+          "LIQUREAL2",
+          "INCEPREAL1",
+          "INCEPREAL2",
+          "FINREAL1",
+          "FINREAL2",
+          "LABREAL1-2",
+          "FACT0",
+          "FACT1",
+          "FACT2",
+          "CAUSFACT0",
+          "CAUSFACT1",
+          "LIQUFACT0",
+          "LIQUFACT1",
+          "INCEPFACT0",
+          "FINFACT0"
+        ],
+        "REAL_M_FACT_M": [
+          "REAL1-M",
+          "REAL2-M",
+          "REAL3-M",
+          "ANTIREAL1-M",
+          "ANTIREAL2-M",
+          "ANTIREAL3-M",
+          "CAUSREAL1-M",
+          "LIQUREAL1-M",
+          "INCEPREAL1-M",
+          "FINREAL1-M",
+          "FACT0-M",
+          "FACT1-M",
+          "ANTIFACT0-M",
+          "CAUSFACT0-M",
+          "CAUSFACT1-M",
+          "CAUSFACT2-M",
+          "LIQUFACT0-M",
+          "LIQUFACT1-M"
+        ],
+        "OTHER_VERBAL": [
+          "MANIF",
+          "PREPAR",
+          "SON"
+        ],
+        "ADJECTIVAL_ADVERBIAL": [
+          "MAGN",
+          "ANTIMAGN",
+          "BON",
+          "ANTIBON",
+          "VER",
+          "ANTIVER"
+        ],
+        "SUBSTANTIVE": [
+          "SING",
+          "MULT",
+          "EQUIP",
+          "CAP",
+          "FIGUR"
+        ],
+        "PREPOSITIONAL": [
+          "LOC",
+          "LOC-AD",
+          "ADV1-UN",
+          "ADV2-UN"
+        ]
+      },
+      "derived_function_rule": {
+        "pattern": "S0_<verbal_function>",
+        "description_ru": "Субстантивные дериваты глагольных лексических функций образуются добавлением префикса S0_ к имени глагольной функции.",
+        "example": "S0_OPER1"
+      },
+      "coverage_note": "В корпусе представлено более 100 лексических функций."
+    },
+    {
+      "id": "elliptical",
+      "position": 6,
+      "official_navigation_number": null,
+      "name_ru": "Эллиптическая разметка",
+      "name_en": "Ellipsis annotation",
+      "level": [
+        "token",
+        "syntactic_structure"
+      ],
+      "source_url": "https://ruscorpora.ru/corpus/syntax",
+      "description_ru": "Для простых типов эллипсиса восстанавливает опущенные слова и помещает их в синтаксическую структуру предложения.",
+      "available_in": [
+        "Синтаксический корпус (СинТагРус)"
+      ],
+      "search": {
+        "field": "Дополнительные признаки",
+        "group": "Особые случаи",
+        "feature": "эллипсис"
+      },
+      "display": {
+        "restored_words": "заключаются в квадратные скобки",
+        "example_format": "[восстановленное слово]"
+      },
+      "documentation_note": "На главной странице этот тип перечислен между лексико-функциональной и микросинтаксической разметкой, но отдельного пункта в нумерованном меню нет."
+    },
+    {
+      "id": "microsyntactic",
+      "position": 7,
+      "official_navigation_number": 6,
+      "name_ru": "Микросинтаксическая разметка",
+      "name_en": "Microsyntactic annotation",
+      "level": [
+        "multiword_expression",
+        "construction"
+      ],
+      "source_url": "https://ruscorpora.ru/page/instruction-microsyntax/",
+      "description_ru": "Идентифицирует фразеологические и полуфразеологические выражения и конструкции с особым синтаксическим поведением.",
+      "available_in": [
+        "Синтаксический корпус (СинТагРус)"
+      ],
+      "unit_classes": [
+        "неоднословные выражения, эквивалентные словам",
+        "составные союзы",
+        "парные союзы",
+        "составные наречия",
+        "составные предлоги",
+        "предложно-именные слабокомпозициональные сочетания",
+        "конструкции с двумя вопросительными местоимениями",
+        "конструкции с лексическим повтором",
+        "синтаксические фраземы"
+      ],
+      "examples": [
+        "все равно",
+        "как будто бы",
+        "разве что",
+        "не только … но и",
+        "не то … не то",
+        "со стороны",
+        "в качестве",
+        "с виду",
+        "на виду",
+        "про запас",
+        "кто что",
+        "X не X",
+        "X X-у рознь"
+      ],
+      "nested_units_allowed": true,
+      "annotation_method": "почти исключительно ручная",
+      "statistics_from_page": {
+        "unit_occurrences": "немногим более 47 000",
+        "sentences_with_units": "около 35 200",
+        "share_of_sentences": ">32%"
+      }
+    },
+    {
+      "id": "coreference",
+      "position": 8,
+      "official_navigation_number": 7,
+      "name_ru": "Кореферентная разметка",
+      "name_en": "Coreference annotation",
+      "level": [
+        "mention_head",
+        "relation"
+      ],
+      "source_url": "https://ruscorpora.ru/page/instruction-coreference/",
+      "source_updated": "2025-09-30",
+      "description_ru": "Связи между вершинами именных групп и другими составляющими, отсылающими к одному объекту или ситуации.",
+      "available_in": [
+        "Синтаксический корпус (СинТагРус)"
+      ],
+      "relation_types": [
+        {
+          "id": "anaphoric",
+          "name_ru": "анафорическая связь",
+          "direction": "справа налево",
+          "typical_sources": [
+            "возвратные и взаимно-возвратные местоимения",
+            "местоимения 3-го лица",
+            "относительные местоимения",
+            "местоименные наречия",
+            "местоимение это"
+          ]
+        },
+        {
+          "id": "cataphoric",
+          "name_ru": "катафорическая связь",
+          "direction": "слева направо",
+          "typical_sources": [
+            "возвратные и взаимно-возвратные местоимения",
+            "местоимения 3-го лица"
+          ]
+        },
+        {
+          "id": "coreferential",
+          "name_ru": "кореферентная связь",
+          "direction": "справа налево",
+          "typical_sources": [
+            "неместоименные существительные",
+            "субстантивированные прилагательные",
+            "субстантивированные причастия",
+            "вершины именных групп"
+          ]
+        }
+      ],
+      "mention_boundaries_encoded": false,
+      "annotation_method": "полуавтоматическая разметка системой ЭТАП с ручной коррекцией",
+      "current_search_limit": "связи в пределах одного предложения",
+      "statistics_from_page": {
+        "texts": 25,
+        "searchable_sentences": 5460
+      }
+    },
+    {
+      "id": "temporal",
+      "position": 9,
+      "official_navigation_number": 8,
+      "name_ru": "Темпоральная разметка",
+      "name_en": "Temporal annotation",
+      "level": [
+        "temporal_expression",
+        "semantic_relation"
+      ],
+      "source_url": "https://ruscorpora.ru/page/instruction-temporal/",
+      "source_updated": "2025-09-30",
+      "description_ru": "Границы временных выражений, компоненты их смысла и связи с событиями или другими временными выражениями.",
+      "available_in": [
+        "Синтаксический корпус (СинТагРус)"
+      ],
+      "status": "пилотная/экспериментальная",
+      "relation_count": 19,
+      "relation_types": [
+        "возраст",
+        "годовщина",
+        "время наблюдения",
+        "длительность",
+        "периодичность",
+        "одновременность",
+        "временная вложенность",
+        "временная локализация",
+        "временной антецедент",
+        "временная кореференция",
+        "начало",
+        "конец",
+        "начальный ограничитель",
+        "конечный ограничитель",
+        "предшествующая ситуация",
+        "последующая ситуация",
+        "определяющая ситуация",
+        "ограничитель временного квантора",
+        "ограничиваемое временным квантором"
+      ],
+      "statistics_from_page": {
+        "texts": 14,
+        "words": 51995,
+        "temporal_expressions": 2012,
+        "searchable_sentences": 949
+      },
+      "current_search_limit": "межпредложенческие связи размечены, но не находятся текущим поиском"
+    },
+    {
+      "id": "text_metadata",
+      "position": 10,
+      "official_navigation_number": 9,
+      "name_ru": "Метаразметка (параметры текстов)",
+      "name_en": "Text metadata annotation",
+      "level": [
+        "text",
+        "author",
+        "document"
+      ],
+      "source_url": "https://ruscorpora.ru/page/instruction-parameter/",
+      "source_updated": "2025-09-30",
+      "description_ru": "Атрибуты текста, автора и обстоятельств создания для формирования подкорпусов.",
+      "parameter_blocks": {
+        "text_passport": [
+          {
+            "id": "author",
+            "name_ru": "Автор",
+            "subfields": [
+              "имя",
+              "пол",
+              "дата рождения или примерный возраст"
+            ]
+          },
+          {
+            "id": "title",
+            "name_ru": "Название текста"
+          },
+          {
+            "id": "creation_date",
+            "name_ru": "Время создания текста",
+            "operators": [
+              "не раньше",
+              "не позже"
+            ],
+            "precision": [
+              "точная",
+              "приблизительная"
+            ]
+          },
+          {
+            "id": "word_count",
+            "name_ru": "Объем текста",
+            "unit": "слова",
+            "operators": [
+              "не более",
+              "не менее"
+            ]
+          }
+        ],
+        "fiction": [
+          {
+            "id": "genre",
+            "name_ru": "Жанр",
+            "examples": [
+              "историко-приключенческая литература",
+              "криминальная литература",
+              "любовная литература",
+              "сатира и юмор",
+              "фантастика",
+              "нежанровая проза"
+            ]
+          },
+          {
+            "id": "text_type",
+            "name_ru": "Тип текста",
+            "open_list": true,
+            "examples": [
+              "анекдот",
+              "боевик",
+              "детектив",
+              "повесть",
+              "притча",
+              "рассказ",
+              "роман",
+              "сказка",
+              "триллер",
+              "эпопея",
+              "эссе"
+            ]
+          },
+          {
+            "id": "chronotope",
+            "name_ru": "Хронотоп",
+            "examples": [
+              "доисторический период",
+              "античность",
+              "Средние века",
+              "Новое время",
+              "Россия: XIX век",
+              "Россия: XX век до 1914",
+              "Россия/СССР: война 1914–1918",
+              "революция",
+              "гражданская война",
+              "1920-е",
+              "1930-е",
+              "война 1941–1945",
+              "послевоенный период до 1952",
+              "1950-е",
+              "1960–1980-е",
+              "перестройка",
+              "Россия: постсоветский период",
+              "хронотоп не определен"
+            ]
+          }
+        ],
+        "nonfiction": [
+          {
+            "id": "topic",
+            "name_ru": "Тематика текста",
+            "open_list": true,
+            "multiple_values": true,
+            "examples": [
+              "бизнес, коммерция, экономика, финансы",
+              "война и вооруженные конфликты",
+              "дом и домашнее хозяйство",
+              "здоровье и медицина",
+              "зрелища и развлечения",
+              "искусство",
+              "криминал",
+              "наука",
+              "политика и общественная жизнь",
+              "право",
+              "производство",
+              "сельское хозяйство",
+              "спорт",
+              "природа",
+              "частная жизнь"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "annotation_type_index": {
+    "morphological": {
+      "position": 1,
+      "name_ru": "Морфологическая разметка",
+      "source_url": "https://ruscorpora.ru/page/instruction-morph/"
+    },
+    "derivational_morphemic": {
+      "position": 2,
+      "name_ru": "Словообразовательная разметка",
+      "source_url": "https://ruscorpora.ru/page/instruction-derivation/"
+    },
+    "syntactic": {
+      "position": 3,
+      "name_ru": "Синтаксическая разметка",
+      "source_url": "https://ruscorpora.ru/page/instruction-syntax/"
+    },
+    "semantic": {
+      "position": 4,
+      "name_ru": "Семантическая разметка",
+      "source_url": "https://ruscorpora.ru/page/instruction-semantic/"
+    },
+    "lexical_functional": {
+      "position": 5,
+      "name_ru": "Лексико-функциональная разметка",
+      "source_url": "https://ruscorpora.ru/page/instruction-lexical-functional/"
+    },
+    "elliptical": {
+      "position": 6,
+      "name_ru": "Эллиптическая разметка",
+      "source_url": "https://ruscorpora.ru/corpus/syntax"
+    },
+    "microsyntactic": {
+      "position": 7,
+      "name_ru": "Микросинтаксическая разметка",
+      "source_url": "https://ruscorpora.ru/page/instruction-microsyntax/"
+    },
+    "coreference": {
+      "position": 8,
+      "name_ru": "Кореферентная разметка",
+      "source_url": "https://ruscorpora.ru/page/instruction-coreference/"
+    },
+    "temporal": {
+      "position": 9,
+      "name_ru": "Темпоральная разметка",
+      "source_url": "https://ruscorpora.ru/page/instruction-temporal/"
+    },
+    "text_metadata": {
+      "position": 10,
+      "name_ru": "Метаразметка (параметры текстов)",
+      "source_url": "https://ruscorpora.ru/page/instruction-parameter/"
+    }
+  }
+}

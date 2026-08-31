@@ -1,0 +1,40 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+
+  "name": "ruscorpora-proxy",
+
+  "main": "src/entry-filenames.js",
+
+  "compatibility_date": "2026-08-29",
+
+  "workers_dev": true,
+
+  "observability": {
+    "enabled": true
+  },
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "RNC_JOBS",
+        "class_name": "RncJob"
+      }
+    ]
+  },
+
+  "migrations": [
+    {
+      "tag": "rnc-jobs-v1",
+      "new_sqlite_classes": [
+        "RncJob"
+      ]
+    }
+  ],
+
+  "vars": {
+    "RNC_BASE_URL": "https://ruscorpora.ru",
+    "JOB_TTL_HOURS": "24",
+    "JOB_PAGES_PER_ALARM": "2",
+    "JOB_PAGE_DELAY_MS": "300"
+  }
+}
