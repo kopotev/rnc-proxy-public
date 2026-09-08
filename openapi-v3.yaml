@@ -1,0 +1,626 @@
+openapi: 3.1.0
+info:
+  title: Ruscorpora GPT Proxy v3
+  version: 3.0.0
+  description: >-
+    Unified MyGPT API through the Cloudflare Worker. Small corpus requests run
+    directly; large concordance and frequency requests become Durable Object jobs.
+    Statistics and chronology use compact exact-count calls.
+servers:
+  - url: https://ruscorpora-proxy.mihail-kopotev.workers.dev
+security:
+  - bearerAuth: []
+
+paths:
+  /health:
+    get:
+      operationId: getHealth
+      summary: Check Worker health
+      security: []
+      responses:
+        '200':
+          description: Worker health
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+
+  /rnc/auth/check:
+    get:
+      operationId: checkRncAuthentication
+      summary: Check RNC authentication
+      responses:
+        '200':
+          description: Authentication status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+
+  /rnc/auto-query:
+    post:
+      operationId: runRncQuery
+      x-openai-isConsequential: false
+      summary: Run a corpus query with automatic direct or background routing
+      description: >-
+        Preferred operation for counts, concordances and frequency lists. The Worker
+        chooses direct execution or a Durable Object job from the requested size.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoQueryRequest'
+      responses:
+        '200':
+          description: Direct result or background job descriptor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoQueryResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unsupported query
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /rnc/batch-count:
+    post:
+      operationId: batchCount
+      x-openai-isConsequential: false
+      summary: Run up to 40 exact counts for chronology or category comparisons
+      description: >-
+        Use for time series and metadata distributions. Keep lexGramm constant and
+        vary subcorpus conditions such as created, sphere, type, topic or genre.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchCountRequest'
+      responses:
+        '200':
+          description: Batch count results with hits, texts and IPM
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchCountResponse'
+
+  /rnc/stats:
+    post:
+      operationId: getCorpusStats
+      x-openai-isConsequential: false
+      summary: Get overall RNC corpus statistics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CorpusRequest'
+      responses:
+        '200':
+          description: Corpus statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+
+  /rnc/word-portrait:
+    post:
+      operationId: getWordPortrait
+      x-openai-isConsequential: false
+      summary: Get statistics for one lemma
+      description: Use for one lemma, not a multiword construction.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WordPortraitRequest'
+      responses:
+        '200':
+          description: Word portrait data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+
+  /rnc/attrs:
+    post:
+      operationId: getAttributes
+      x-openai-isConsequential: false
+      summary: Get available metadata attributes for a corpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CorpusRequest'
+      responses:
+        '200':
+          description: Available attributes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+
+  /rnc/attrs/value:
+    post:
+      operationId: getAttributeValues
+      x-openai-isConsequential: false
+      summary: Get allowed values for one metadata attribute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttributeValuesRequest'
+      responses:
+        '200':
+          description: Attribute values
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+
+  /rnc/config:
+    post:
+      operationId: getRncConfig
+      x-openai-isConsequential: false
+      summary: Get RNC configuration for a corpus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CorpusRequest'
+      responses:
+        '200':
+          description: Corpus configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+
+  /rnc/search-form:
+    post:
+      operationId: getSearchForm
+      x-openai-isConsequential: false
+      summary: Get lexicogrammatical search-form metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CorpusRequest'
+      responses:
+        '200':
+          description: Search form metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+
+  /rnc/jobs/{jobId}:
+    get:
+      operationId: getJobStatus
+      summary: Check a background job
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Job status and download links
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatusResponse'
+
+  /rnc/jobs/{jobId}/rows:
+    get:
+      operationId: getJobRows
+      summary: Read collected concordance rows from a background job
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+            default: 100
+      responses:
+        '200':
+          description: Collected rows
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+
+  /rnc/jobs/{jobId}/frequency:
+    get:
+      operationId: getJobFrequency
+      summary: Read grouped frequency rows from a background job
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 500
+            default: 100
+      responses:
+        '200':
+          description: Frequency rows
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+
+  schemas:
+    Corpus:
+      type: object
+      required: [type]
+      properties:
+        type:
+          type: string
+          description: RNC corpus type; MAIN and GICR are configured and tested.
+          example: MAIN
+        lang:
+          type: string
+      additionalProperties: true
+
+    TextValue:
+      type: object
+      required: [v]
+      properties:
+        v:
+          type: string
+      additionalProperties: false
+
+    CheckValue:
+      type: object
+      required: [v]
+      properties:
+        v:
+          type: boolean
+      additionalProperties: false
+
+    DateValue:
+      type: object
+      required: [year, month, day]
+      properties:
+        year: { type: integer }
+        month: { type: integer, minimum: 1, maximum: 12 }
+        day: { type: integer, minimum: 1, maximum: 31 }
+      additionalProperties: false
+
+    IntRange:
+      type: object
+      required: [begin, end]
+      properties:
+        begin: { type: integer }
+        end: { type: integer }
+        matching: { type: string }
+        zeroNotAllowed: { type: boolean }
+      additionalProperties: false
+
+    DateRange:
+      type: object
+      required: [begin, end]
+      properties:
+        begin: { $ref: '#/components/schemas/DateValue' }
+        end: { $ref: '#/components/schemas/DateValue' }
+        matching: { type: string }
+      additionalProperties: false
+
+    Condition:
+      type: object
+      required: [fieldName]
+      properties:
+        fieldName:
+          type: string
+          description: Typical fields include lex, form, gramm, sem, dist and metadata fields.
+        text: { $ref: '#/components/schemas/TextValue' }
+        intRange: { $ref: '#/components/schemas/IntRange' }
+        dateRange: { $ref: '#/components/schemas/DateRange' }
+        check: { $ref: '#/components/schemas/CheckValue' }
+      additionalProperties: false
+
+    Subsection:
+      type: object
+      required: [conditionValues]
+      properties:
+        conditionValues:
+          type: array
+          minItems: 1
+          items: { $ref: '#/components/schemas/Condition' }
+      additionalProperties: false
+
+    Section:
+      type: object
+      required: [subsectionValues]
+      properties:
+        conditionValues:
+          type: array
+          items: { $ref: '#/components/schemas/Condition' }
+        subsectionValues:
+          type: array
+          minItems: 1
+          items: { $ref: '#/components/schemas/Subsection' }
+      additionalProperties: false
+
+    LexGramm:
+      type: object
+      required: [sectionValues]
+      properties:
+        sectionValues:
+          type: array
+          minItems: 1
+          items: { $ref: '#/components/schemas/Section' }
+      additionalProperties: false
+
+    SubcorpusSection:
+      type: object
+      required: [conditionValues]
+      properties:
+        conditionValues:
+          type: array
+          minItems: 1
+          items: { $ref: '#/components/schemas/Condition' }
+      additionalProperties: false
+
+    Subcorpus:
+      type: object
+      required: [sectionValues]
+      properties:
+        sectionValues:
+          type: array
+          minItems: 1
+          items: { $ref: '#/components/schemas/SubcorpusSection' }
+      additionalProperties: false
+
+    PageParams:
+      type: object
+      properties:
+        page: { type: integer, minimum: 0 }
+        docsPerPage: { type: integer, minimum: 1 }
+        snippetsPerPage: { type: integer, minimum: 1 }
+        snippetsPerDoc: { type: integer, minimum: 1 }
+      additionalProperties: false
+
+    SearchParams:
+      type: object
+      properties:
+        sampling: { type: integer, minimum: 0 }
+        pageParams: { $ref: '#/components/schemas/PageParams' }
+      additionalProperties: true
+
+    RncSearchQuery:
+      type: object
+      required: [corpus, lexGramm]
+      properties:
+        corpus: { $ref: '#/components/schemas/Corpus' }
+        lexGramm: { $ref: '#/components/schemas/LexGramm' }
+        subcorpus: { $ref: '#/components/schemas/Subcorpus' }
+        params: { $ref: '#/components/schemas/SearchParams' }
+      additionalProperties: true
+
+    AutoQueryRequest:
+      type: object
+      required: [kind, query]
+      properties:
+        kind:
+          type: string
+          enum: [count, concordance, frequency]
+          description: count returns exact stats; concordance returns examples; frequency groups hits.
+        query: { $ref: '#/components/schemas/RncSearchQuery' }
+        requestedRows:
+          type: integer
+          minimum: 1
+          description: >-
+            Desired examples or frequency groups. Defaults: 10 examples or 100 groups.
+            Large frequency requests collect the full concordance before ranking.
+        allResults:
+          type: boolean
+          default: false
+          description: If true, collect all available results; large requests become background jobs.
+        targetWord:
+          type: integer
+          minimum: 1
+          description: For frequency only; 1-based query-word index to group.
+        groupBy:
+          type: string
+          enum: [lemma, lex, form, word, gramm, pos]
+          default: lemma
+        sort:
+          type: string
+          default: hits
+        frequencyThreshold:
+          type: string
+          default: '0.95'
+      additionalProperties: false
+
+    AutoQueryResponse:
+      type: object
+      properties:
+        ok: { type: boolean }
+        kind: { type: string }
+        execution:
+          type: string
+          enum: [direct, background]
+        reason: { type: string }
+        semantics: { type: string }
+        directLimit: { type: integer }
+        requestedRows: { type: integer }
+        allResults: { type: boolean }
+        count: { $ref: '#/components/schemas/CountResult' }
+        result: { $ref: '#/components/schemas/GenericObject' }
+        job: { $ref: '#/components/schemas/JobStatusResponse' }
+      additionalProperties: true
+
+    CountResult:
+      type: object
+      properties:
+        hits: { type: integer }
+        texts: { type: integer }
+        ipm: { type: number }
+        denominatorWords: { type: integer }
+        denominatorSource: { type: string }
+        corpusWords: { type: integer }
+        subcorpusWords: { type: integer }
+      additionalProperties: true
+
+    BatchCountItem:
+      type: object
+      required: [query]
+      properties:
+        id: { type: string }
+        query: { $ref: '#/components/schemas/RncSearchQuery' }
+      additionalProperties: false
+
+    BatchCountRequest:
+      type: object
+      required: [queries]
+      properties:
+        queries:
+          type: array
+          minItems: 1
+          maxItems: 40
+          items: { $ref: '#/components/schemas/BatchCountItem' }
+      additionalProperties: false
+
+    BatchCountResponse:
+      type: object
+      properties:
+        count: { type: integer }
+        results:
+          type: array
+          items: { $ref: '#/components/schemas/GenericObject' }
+      additionalProperties: true
+
+    CorpusRequest:
+      type: object
+      required: [corpus]
+      properties:
+        corpus: { $ref: '#/components/schemas/Corpus' }
+      additionalProperties: false
+
+    WordPortraitRequest:
+      type: object
+      required: [lemma, corpus]
+      properties:
+        lemma: { type: string }
+        corpus: { $ref: '#/components/schemas/Corpus' }
+        pos: { type: string }
+        statFields:
+          type: array
+          items: { type: string }
+        resultType:
+          type: array
+          items: { type: string }
+      additionalProperties: true
+
+    AttributeValuesRequest:
+      type: object
+      required: [corpus, attrName]
+      properties:
+        corpus: { $ref: '#/components/schemas/Corpus' }
+        attrName: { type: string }
+      additionalProperties: false
+
+    JobStatusResponse:
+      type: object
+      properties:
+        ok: { type: boolean }
+        jobId: { type: string }
+        kind: { type: string }
+        status: { type: string }
+        stopReason: { type: string }
+        expectedHits: { type: integer }
+        expectedTexts: { type: integer }
+        collectedRows: { type: integer }
+        missingOccurrences: { type: integer }
+        incompleteDocuments: { type: integer }
+        completeConcordance: { type: boolean }
+        frequencyRows: { type: integer }
+        groupedOccurrences: { type: integer }
+        statusUrl: { type: string }
+        rowsUrl: { type: string }
+        frequencyUrl: { type: string }
+        concordanceCsvUrl: { type: string }
+        frequencyCsvUrl: { type: string }
+      additionalProperties: true
+
+    GenericObject:
+      type: object
+      properties:
+        ok: { type: boolean }
+        status: { type: string }
+      additionalProperties: true
+
+    ErrorResponse:
+      type: object
+      properties:
+        ok: { type: boolean }
+        error: { $ref: '#/components/schemas/ErrorObject' }
+      additionalProperties: true
+
+    ErrorObject:
+      type: object
+      properties:
+        code: { type: string }
+        message: { type: string }
+        details:
+          type: object
+          properties:
+            upstreamStatus: { type: integer }
+          additionalProperties: true
+      additionalProperties: true
