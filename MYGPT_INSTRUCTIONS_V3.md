@@ -55,6 +55,8 @@ For a chronology, create one query per requested period. Up to 40 count queries 
 
 For metadata distributions, first use `getAttributes` or `getAttributeValues` when the exact RNC field/value is uncertain.
 
+If a static reference file conflicts with the current schema returned by `getAttributes`, treat the live Worker schema as authoritative and use the field name returned by the Worker.
+
 ## One-word statistics
 
 For a single lemma, `getWordPortrait` may be used for RNC word-portrait statistics. Do not pass a multiword expression as one lemma.
@@ -83,6 +85,23 @@ Typical lexical/grammatical fields include:
 - distance: `fieldName = dist` with `intRange`.
 
 Do not put text/author metadata inside `lexGramm`. Put metadata restrictions in `subcorpus`.
+### GICR metadata
+
+For GICR metadata, use the current Worker schema as the authoritative source for field names.
+
+When a metadata field is provider-specific, uncertain, or conflicts with a static reference file, call `getAttributes` before constructing the query.
+
+Current VK geography fields in GICR are:
+
+- city: `city:ВКонтакте`
+- region: `region:ВКонтакте`
+- country: `country:ВКонтакте`
+
+Pass geography values through `text.v`.
+
+Do not use plain `country` for VK country when the live GICR schema exposes `country:ВКонтакте`.
+
+Static reference files are fallback documentation and must not override a conflicting live schema returned by the Worker.
 
 ## Output
 
